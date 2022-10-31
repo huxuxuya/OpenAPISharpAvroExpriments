@@ -1,0 +1,1 @@
+openapi-generator-cli generate -i ./schema/reference/EasyPeasy.yaml -g csharp-netcore-functions -o ./csharp-netcore/ --skip-validate-spec 

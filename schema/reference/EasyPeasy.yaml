@@ -1,0 +1,69 @@
+openapi: 3.1.0
+x-stoplight:
+  id: u0y4zgzeeogpz
+info:
+  title: EasyPeasy
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /ping:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-ping
+components:
+  schemas:
+    animal:
+      title: animal
+      x-stoplight:
+        id: r04s64wxo73fq
+      anyOf:
+        - $ref: '#/components/schemas/cat'
+        - $ref: '#/components/schemas/dog'
+    cat:
+      title: cat
+      x-stoplight:
+        id: jtmpqnb0a1qhx
+      type: object
+      properties:
+        head:
+          $ref: '#/components/schemas/animalHead'
+        body:
+          $ref: '#/components/schemas/animalBody'
+    dog:
+      title: dog
+      x-stoplight:
+        id: 90e3jhtw6yx5u
+      type: object
+      properties:
+        head:
+          $ref: '#/components/schemas/animalHead'
+        body:
+          $ref: '#/components/schemas/animalBody'
+    animalBody:
+      title: animalBody
+      x-stoplight:
+        id: aiayoj1ma0axl
+      type: object
+      properties:
+        legs:
+          type: number
+        tail:
+          type: boolean
+    animalHead:
+      title: animalHead
+      x-stoplight:
+        id: smjrv61z6yo93
+      type: object
+      properties:
+        hairs:
+          type: boolean
+        tongue:
+          type: string
+          enum:
+            - long
+            - short
