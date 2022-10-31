@@ -24,19 +24,19 @@ namespace Org.OpenAPITools.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class AnimalHead : IEquatable<AnimalHead>
+    public partial class Animal : IEquatable<Animal>
     {
         /// <summary>
-        /// Gets or Sets Hairs
+        /// Gets or Sets Head
         /// </summary>
-        [DataMember(Name="hairs", EmitDefaultValue=false)]
-        public bool Hairs { get; set; }
+        [DataMember(Name="head", EmitDefaultValue=false)]
+        public AnimalHead Head { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tongue
+        /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name="tongue", EmitDefaultValue=false)]
-        public string Tongue { get; set; }
+        [DataMember(Name="body", EmitDefaultValue=false)]
+        public AnimalBody Body { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -45,9 +45,9 @@ namespace Org.OpenAPITools.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AnimalHead {\n");
-            sb.Append("  Hairs: ").Append(Hairs).Append("\n");
-            sb.Append("  Tongue: ").Append(Tongue).Append("\n");
+            sb.Append("class Animal {\n");
+            sb.Append("  Head: ").Append(Head).Append("\n");
+            sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,29 +70,29 @@ namespace Org.OpenAPITools.Models
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((AnimalHead)obj);
+            return obj.GetType() == GetType() && Equals((Animal)obj);
         }
 
         /// <summary>
-        /// Returns true if AnimalHead instances are equal
+        /// Returns true if Animal instances are equal
         /// </summary>
-        /// <param name="other">Instance of AnimalHead to be compared</param>
+        /// <param name="other">Instance of Animal to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AnimalHead other)
+        public bool Equals(Animal other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Hairs == other.Hairs ||
-                    
-                    Hairs.Equals(other.Hairs)
+                    Head == other.Head ||
+                    Head != null &&
+                    Head.Equals(other.Head)
                 ) && 
                 (
-                    Tongue == other.Tongue ||
-                    Tongue != null &&
-                    Tongue.Equals(other.Tongue)
+                    Body == other.Body ||
+                    Body != null &&
+                    Body.Equals(other.Body)
                 );
         }
 
@@ -106,10 +106,10 @@ namespace Org.OpenAPITools.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    
-                    hashCode = hashCode * 59 + Hairs.GetHashCode();
-                    if (Tongue != null)
-                    hashCode = hashCode * 59 + Tongue.GetHashCode();
+                    if (Head != null)
+                    hashCode = hashCode * 59 + Head.GetHashCode();
+                    if (Body != null)
+                    hashCode = hashCode * 59 + Body.GetHashCode();
                 return hashCode;
             }
         }
@@ -117,12 +117,12 @@ namespace Org.OpenAPITools.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(AnimalHead left, AnimalHead right)
+        public static bool operator ==(Animal left, Animal right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(AnimalHead left, AnimalHead right)
+        public static bool operator !=(Animal left, Animal right)
         {
             return !Equals(left, right);
         }

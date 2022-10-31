@@ -29,14 +29,14 @@ namespace Org.OpenAPITools.Models
         /// <summary>
         /// Gets or Sets Legs
         /// </summary>
-        [DataMember(Name="legs", EmitDefaultValue=true)]
-        public Object Legs { get; set; }
+        [DataMember(Name="legs", EmitDefaultValue=false)]
+        public decimal Legs { get; set; }
 
         /// <summary>
         /// Gets or Sets Tail
         /// </summary>
-        [DataMember(Name="tail", EmitDefaultValue=true)]
-        public Object Tail { get; set; }
+        [DataMember(Name="tail", EmitDefaultValue=false)]
+        public bool Tail { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,12 +86,12 @@ namespace Org.OpenAPITools.Models
             return 
                 (
                     Legs == other.Legs ||
-                    Legs != null &&
+                    
                     Legs.Equals(other.Legs)
                 ) && 
                 (
                     Tail == other.Tail ||
-                    Tail != null &&
+                    
                     Tail.Equals(other.Tail)
                 );
         }
@@ -106,9 +106,9 @@ namespace Org.OpenAPITools.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Legs != null)
+                    
                     hashCode = hashCode * 59 + Legs.GetHashCode();
-                    if (Tail != null)
+                    
                     hashCode = hashCode * 59 + Tail.GetHashCode();
                 return hashCode;
             }
